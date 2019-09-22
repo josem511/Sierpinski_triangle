@@ -14,7 +14,7 @@ void draw() {
 }
 
 void drawCircle(float x, float y, float radius) {
-  // Scale the radius value from 0 to half of the width(radius of 1st Gen) to a range between 0 and 255
+  // Scale the radius value from 0 to half of the width(radius of 1st Gen) to a range between 0 and 175
   float c = map(radius, 0, width/2, 0, 175);
 
   // Scale the radius value from 0 to 1/8 of the width(radius of 3rd Gen) to a range between 0 and 255
