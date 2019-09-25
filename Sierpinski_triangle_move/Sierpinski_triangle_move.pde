@@ -6,15 +6,15 @@ void setup() {
 }
 
 void draw() {
-  background(frameCount, frameCount, 0, frameCount/2); //RGB(red+green = yellow) and Hue(increases). 
+  background(frameCount, frameCount, 0, frameCount); //RGB(red+green = yellow) and Hue(increases & will stop at 255). 
   drawCircle(width/2, width/2, width/2); //x,y(center),radius(half of width)
-  //b = b + frameCount;
-  if (frameCount < 300)
-    maxRadius = (int)map(frameCount, 1, 300, width, 3);
+  if (frameCount < 255)
+    maxRadius = (int)map(frameCount, 0, 255, width, 3);
   else
     noLoop();
   //if (maxRadius > 3)
   //  maxRadius /= 2;
+  saveFrame("tiangleFrames/triangle_####.png"); //save each frame in folder
 }
 
 void drawCircle(float x, float y, float radius) {
@@ -29,15 +29,11 @@ void drawCircle(float x, float y, float radius) {
   else
     fill(d,0, 0);
   ellipse(x, y, radius, radius);
-  //a++;
-  //if (a < b) {
     if (radius > maxRadius) {
       drawCircle(x + radius/2, y, radius/2); //right circle
       drawCircle(x - radius/2, y, radius/2); //left circle
       drawCircle(x , y - radius/2, radius/2);//top circle
-      //drawCircle(x , y + radius/2, radius/2); //This will create a beautiful square. but it takes a long time to load
     }
-  //}
 }
 
 void mousePressed()
