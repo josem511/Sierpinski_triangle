@@ -1,9 +1,7 @@
-//int a = 0;
-//int b = 1;
 float c = 0;
 float d = 0;
 void setup() {
-  size(720, 540); //(width, (3/4) * width)
+  size(720, 540);
   background(255, 255, 0);
   noLoop();
 }
@@ -11,9 +9,6 @@ void setup() {
 void draw() {
 //  background(frameCount, frameCount, 0, frameCount/2); //RGB(red+green = yellow) and Hue(increases). 
   drawCircle(width/2, width/2, width/2); //x,y(center),radius(half of width)
-//  b = b + frameCount;
-  //if(a < b)
-    saveFrame("Sierpinski_triangle_movie_thirdTry/bubble_####.png"); //save each frame in folder
 }
 
 void drawCircle(float x, float y, float radius) {
@@ -29,18 +24,10 @@ void drawCircle(float x, float y, float radius) {
     fill(d,0, 0);
   ellipse(x, y, radius, radius);
   
-//  a++;
-  //if (a < b) {
     if (radius > 3) {
       drawCircle(x + radius/2, y, radius/2);
       drawCircle(x - radius/2, y, radius/2);
       drawCircle(x , y - radius/2, radius/2);
-      //drawCircle(x , y + radius/2, radius/2);
     }
-  //}
-}
 
-void mousePressed()
-{
-  loop();
 }
