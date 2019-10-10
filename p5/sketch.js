@@ -1,28 +1,33 @@
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	// createCanvas(720, 540);
 	if(windowWidth<windowHeight)
 		m = windowWidth;
 	else
 		m = windowHeight;
 
-	smallCircle = new Circle(50,50,50);
+	//smallCircle = new Circle(50,50,50);
 	circles = [];
 	drawCircle(windowWidth/2, windowHeight/2, m/2, circles);
+	j=0;
 }
 
 function draw() {
 	background(255, 100, 100);
-	smallCircle.show();
+	//smallCircle.show();
 	//console.log(smallCircle);
 	//drawCircle(windowWidth/2, windowHeight/2, windowWidth/2, circles);
-	drawAllCircles(circles);
+	drawAllCircles(circles,j);
+	// console.log(circles.length);
+	if(j<circles.length)
+		j++;
 }
 
 function drawCircle(x, y, radius, c){
 	//stroke(r);
 	c.push(new Circle(x, y, radius));
 	ellipse(x,y,radius,radius);
-    if (radius > windowWidth/64) {
+    if (radius > 2*windowWidth/128) {
       drawCircle(x + radius/2, y, radius/2, c); //right circle
       drawCircle(x - radius/2, y, radius/2, c); //left circle
       drawCircle(x , y - radius/2, radius/2, c);//top circle
@@ -30,10 +35,10 @@ function drawCircle(x, y, radius, c){
 		
 }
 
-function drawAllCircles(c)
+function drawAllCircles(c, j)
 {
 	//console.log(c.length);
-	for(i = 0; i < c.length; i++){
+	for(i = 0; i < j; i++){
 		//console.log("DAC inside the if called");
 		c[i].show();
 	}
