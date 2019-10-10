@@ -9,7 +9,7 @@ void draw() {
   background(frameCount, frameCount, 0, frameCount); //RGB(red+green = yellow) and Hue(increases & will stop at 255). 
   drawCircle(width/2, width/2, width/2); //x,y(center),radius(half of width)
   if (frameCount < 255)
-    maxRadius = (int)map(frameCount, 0, 255, width, 3);
+    maxRadius = (int)map(frameCount, 0, 255, width, width/64);
   else
     noLoop();
   //if (maxRadius > 3)
