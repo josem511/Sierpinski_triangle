@@ -14,7 +14,7 @@ void draw() {
     noLoop();
   //if (maxRadius > 3)
   //  maxRadius /= 2;
-  saveFrame("tiangleFrames/triangle_####.png"); //save each frame in folder
+  //saveFrame("tiangleFrames/triangle_####.png"); //save each frame in folder
 }
 
 void drawCircle(float x, float y, float radius) {
